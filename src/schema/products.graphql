@@ -1,0 +1,17 @@
+extend type Query {
+    product(id: ID!): Product
+    products(offset: Int, limit: Int, filterName: String, filterPriceHighToLow: Boolean, filterRatingHighToLow: Boolean): [Product]
+}
+
+type Product {
+    id: ID!
+    name: String!
+    image: String!
+    description: String!
+    price: Int!
+    category: [Category]
+    collection: [Collection]
+    review: [Review]
+    created_at: String
+    updated_at: String
+}

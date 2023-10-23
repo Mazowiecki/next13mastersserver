@@ -1,0 +1,27 @@
+extend type Query {
+    order(id: ID!, userId: String): Order
+    orders(offset: Int, limit: Int, userId: String): [Order]
+}
+
+
+extend type Mutation {
+    createOrder(orderItems: [String], userId: String): Order
+    updateOrder(id: ID!, orderItems: [String], status: EnumOrderStatus, userId: String): Order
+    deleteOrder(id: ID!): Order
+}
+
+enum EnumOrderStatus {
+    PENDING
+    COMPLETED
+    CANCELLED
+}
+
+type Order {
+    id: ID!
+    userId: String
+    total: Int
+    status: EnumOrderStatus!
+    orderItem: [OrderItem]
+    createdAt: String
+    updatedAt: String
+}

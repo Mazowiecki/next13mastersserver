@@ -1,0 +1,12 @@
+extend type Query {
+    collection(name: String!): Collection
+    collections(offset: Int, limit: Int): [Collection]
+}
+
+type Collection {
+    id: ID!
+    name: String
+    createdAt: String
+    updatedAt: String
+    product: [Product]
+}

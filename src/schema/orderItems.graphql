@@ -1,0 +1,19 @@
+extend type Query {
+    orderItem(id: ID!): OrderItem
+    orderItems(offset: Int, limit: Int): [OrderItem]
+}
+
+extend type Mutation {
+    createOrderItem(quantity: Int!, productId: ID!, orderId: ID!): OrderItem
+    updateOrderItem(id: ID!, quantity: Int!): OrderItem
+    deleteOrderItem(id: ID!): OrderItem
+}
+
+type OrderItem {
+    id: ID!
+    quantity: Int!
+    product: Product
+    orderId: ID
+    createdAt: String
+    updatedAt: String
+}

@@ -1,0 +1,12 @@
+extend type Query {
+    category(id: ID!): Category
+    categories(offset: Int, limit: Int, filter: String): [Category]
+}
+
+type Category {
+    id: ID!
+    name: String
+    createdAt: String
+    updatedAt: String
+    product: [Product]
+}
